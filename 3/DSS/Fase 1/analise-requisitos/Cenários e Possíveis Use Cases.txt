@@ -1,0 +1,97 @@
+
+*****************************************************************************
+
+Possíveis Cenários | Funcionalidades presentes no Media Center:
+
+*****************************************************************************
+
+############################################################################
+						CENÁRIO DE UTILIZAÇÃO 1
+############################################################################
+
+1) "(...) poderia fazer upload da sua música e vídeos, que passariam a estar disponíveis para todos os residentes (...)";
+
+	> O Utilizador pode fazer upload de media para a sua conta e a media fica disponível para todos os utentes;	
+
+	-------------------------------------------------------------------------
+
+	Outro:
+
+	* "(...) utilizou-o (disco externo) para fazer upload do conteúdo para a sua conta no media center."
+
+		-> O Utilizador pode fazer upload a partir de um disco;
+
+
+*****************************************************************************
+
+2) "(...) só pode fazer download das suas próprias músicas e vídeos (...)"
+
+	> O Utilizador pode fazer download de media (da media que está na sua conta);
+
+	-------------------------------------------------------------------------
+
+	Outro:
+
+	* "(...) o Manuel descarregou a sua biblioteca de media para um disco externo (...)"
+
+		-> O Utilizador pode fazer download para um disco;
+
+*****************************************************************************
+
+3) "A Isabel, pediu à Paula, que tinha permissões de administração, que
+criasse a conta do Manuel no media center. (...)"
+
+	> O Administrador cria contas (é o único com esta funcionalidade);
+	> O Utilizador novo fornece (Nome + E-mail);
+	> O Administrador cria a conta a partir desses dados;
+	> O Utilizador novo define a sua palavra passe na conta nova existente e temporária (até definir a palavra passe?);
+
+	-------------------------------------------------------------------------
+
+	Outro:
+
+4) "O sistema detectou que algum do conteúdo já estava presente, não o tendo carregado para evitar duplicações (...)"
+
+	> O sistema gere automaticamente conteúdo repetido. Funcinalidade? Vale um Use Case?
+
+	4.1) "Mesmo assim, o conteúdo ficou disponível nas suas colecções (...)"
+
+		> O Sistema não carrega conteúdo repetido;
+		> O Utilizador tem o conteúdo na mesma na sua conta como se o tivesse carregado verdadeiramente;
+
+	4.2) "(...) todos os residentes com quem ele tinha conteúdo em comum foram adicionados à sua lista de potenciais amigos."
+
+		> O Sistema cria uma lista de amigos a partir de conteúdo em comum;
+
+	-------------------------------------------------------------------------
+
+	Outro:
+
+5) "(...) o sistema gerara automaticamente um conjunto de categorias para
+organizar o conteúdo (com base na informação já existente no sistema) (...)"
+
+	> O Sistema gere/cria automaticamente as categorias às quais novo conteúdo será incluído;
+
+	5.1) "(...) gastou algum tempo a organizar o conteúdo de acordo com a sua preferência (...)"
+
+		> O Utilizador pode estabelecer preferências, ou seja, criar categorias à sua escolha;
+		> O Utilizador pode adicionar media a essas categorias criadas;
+
+	-------------------------------------------------------------------------
+
+	Outro:
+
+############################################################################
+						CENÁRIO DE UTILIZAÇÃO 2
+############################################################################
+
+6) "(...) Colocou-o (o Media Center) a tocar Jazz em modo aleatório"
+
+	> O Utilizador colocou a música a tocar em modo aleatório;
+	(Música sua e não de todos. Pode ser de todos? I guess...)
+
+-> Extra:
+
+7) "(...) Ricardo fez logout do media center e o Rui acedeu como convidado".
+
+	> Aceder como convidado;

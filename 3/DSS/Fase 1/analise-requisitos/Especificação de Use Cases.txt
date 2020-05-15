@@ -1,0 +1,535 @@
+
+*****************************************************************************
+						Especificação dos Use Cases
+*****************************************************************************
+
+1) Use case: Autenticar Utente ou Administrador
+
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Autenticar um Utente ou Administrador no Sistema Media Center.
+
+	* Cenários: 
+
+		- O Ricardo chegou a casa e ligou o media center.
+
+	* Pré-Condição: 
+
+		- O Utilizador tem de ser um Utente ou Administrador;
+	
+	* Pós-Condição:
+
+		- O Utilizador entra no Sistema;
+
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Sistema apresenta as opções de Log-In;
+
+	2. O Utilizador escolhe a opção de entrar como Utente/Administrador e insere as credenciais;
+
+	3. O Sistema valida as credenciais inseridas;
+
+	4. O Utilizador entra no Sistema;
+
+	________________________________________________________________________
+
+	Fluxo de excepção 1: [As credenciais são inválidas] (passo 3)
+
+	3.1. O Sistema avisa o Utilizador que as credenciais são inválidas;
+
+	3.2. O Utilizador sai do Sistema.
+
+*****************************************************************************
+
+2) Use case: Autenticar Convidado
+
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Autenticar um Convidado no Sistema Media Center.
+
+	* Cenários: 
+
+		- (...) o Rui acedeu como convidado.
+
+	* Pré-Condição: 
+
+		- Não tem;
+	
+	* Pós-Condição:
+
+		- O Utilizador entra no Sistema como convidado;
+
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Utilizador seleciona a opção de entrar com convidado; 
+
+	2. O Utilizador entra no Sistema;
+
+*****************************************************************************
+
+3) Use Case: Criar novo Utente.
+	
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Um novo Utente é registado no sistema (pelo Administrador);
+
+	* Cenários: 
+
+		- A Isabel, pediu à Paula, que tinha permissões de administração, que criasse a conta do Manuel no media center.
+
+	* Pré-Condição: 
+
+		- Existir um Administrador (aquele que pode executar o Use Case) e o Sistema tem capacidade de ter mais Utentes;
+	
+	* Pós-Condição: 
+
+		- O novo Utente é adicionado ao Sistema Media Center;
+
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. <<include>> Autenticar Administrador;
+
+	2. O Administrador tem um pedido pendente para criar um novo Utente, juntamente com os seus dados (Nome e E-Mail) e aceita esse pedido; 
+
+	3. O Sistema regista um novo Utente temporário;
+
+	4. O novo Utente define a sua password;
+
+	5. O Sistema regista um novo Utente efetivo (registado no Sistema);
+
+	________________________________________________________________________
+
+	> Fluxo Alternativo 1: [O Administrador rejeita o pedido] (passo 2)
+
+		2.1. O Administrador rejeita o pedido de criação de conta;
+
+		2.2. O novo Utente não é criado;
+
+	________________________________________________________________________
+
+	> Fluxo de excepção 1: [O Nome ou E-mail não são válidos (ou já existe esse E-Mail ou não cumpre os requisitos mínimos do Sistema)] (passo 3)
+
+		3.1. Os dados fornecidos ao Administrador são inválidos;
+
+		3.2. O Administrador não cria a nova conta;
+
+	-------------------------------------------------------------------------
+
+*****************************************************************************
+
+4) Use Case: Upload Media (Conteúdo).
+
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Carregar Conteúdo (media) para o Sistema Media Center;
+
+	* Cenários: 
+
+		- (...) poderia fazer upload da sua música e vídeos, que passariam a estar disponíveis para todos os residentes (...);
+
+		- (...) utilizou-o para fazer upload do conteúdo para a sua conta no media center (...);
+
+	* Pré-Condição: 
+
+		- O Utente tem de estar autenticado no Sistema;
+	
+	* Pós-Condição: 
+
+		- O novo Conteúdo (media) é adicionado ao sistema;
+	
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. <<include>> Autenticar Utente;
+
+	2. O Utente seleciona a opção "Upload Conteúdo (Media)";
+
+	3. Sistema pergunta qual o "Path" (caminho) virtual para os ficheiros novos;
+
+	4. O Utente indica o caminho virtual para os ficheiros;
+
+	5. O Sistema adiciona todos os ficheiros indicados, mas apenas se cumprirem os requisitos (o tipo de conteúdo (media) inserido, Ex: .mp3 ou .mp4);
+
+	6. O Sistema automaticamente verifica conteúdo duplicado adicionando apenas para o Media Center aquele que é novo. No entanto as músicas ficam disponíveis na conta pessoal do Utente;
+
+	7. O Sistema automaticamente cria coleções e categoriza o conteúdo adicionado (com base na informação já existente no sistema) e adiciona potenciais amigos ao Utente, sendo estes, outros Utentes com conteúdo em comum;
+
+	________________________________________________________________________
+
+	> Fluxo de Excepção 1: [Caminho para ficheiros inválido ou caminho sem conteúdo disponível] (passo 6)
+
+	5.1. O Sistema deteta um caminho inválido avisando o cliente e não permite o Upload.
+
+*****************************************************************************
+
+3) Use Case: Download Media (Conteúdo).
+
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Descarregar Conteúdo (media) do Sistema Media Center;
+
+	* Cenários: 
+
+		- (...) só pode fazer download das suas próprias músicas e vídeos (...);
+
+		- (...) o Manuel descarregou a sua biblioteca de media para um disco externo (...);
+
+	* Pré-Condição: 
+
+		- O Utente tem de estar autenticado no sistema e ter conteúdo na sua conta pessoal;
+	
+	* Pós-Condição: 
+
+		- O Conteúdo (media) é descarregado do sistema para o seu disco;
+	
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Utente autentica-se no Sistema com as suas credenciais;
+
+	2. O Sistema apresenta as suas funcionalidades e espera seleção por parte do Utente;
+
+	3. O Utente seleciona a opção "Download Conteúdo (Media)";
+
+	4. O Sistema pergunta quais ficheiros o Utente deseja descarregar;
+
+	5. O Utente seleciona os ficheiros;
+
+	6. O Sistema pergunta qual o "Path" (caminho) virtual para guardar os ficheiros;
+
+	7. O Utente indica o caminho virtual para os ficheiros;
+
+	8. O Sistema descarrega todos os ficheiros indicados;
+
+	________________________________________________________________________
+
+	> Fluxo de Excepção 1: [Credenciais inválidas] (passo 1)
+
+	1.1. Sistema avisa sobre credenciais inválidas e reinicia.
+
+	> Fluxo de Excepção 2: [Nenhum conteúdo selecionado] (passo 5)
+
+	5.1. Sistema avisa o Utente que nenhum conteúdo foi selecionado.
+
+	5.2. Regressa a 4.
+
+	> Fluxo de Excepção 3: [Caminho para ficheiros inválido] (passo 6)
+
+	6.1. O Sistema deteta um caminho inválido avisando o cliente;
+	
+	6.2. Regressa a 2.
+
+*****************************************************************************
+
+4) Use Case: Criar coleções.
+
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Criar coleções de conteúdo no Sistema Media Center;
+
+	* Cenários: 
+
+		- (...) gastou algum tempo a organizar o conteúdo de acordo com a sua preferência (...);
+
+	* Pré-Condição: 
+
+		- O Utente tem de estar registado no sistema e conteúdo carregado na sua conta;
+	
+	* Pós-Condição: 
+
+		- O Utente tem novas coleções de conteúdo;
+	
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Utente autentica-se no Sistema com as suas credenciais;
+
+	2. O Sistema apresenta as suas funcionalidades e espera seleção por parte do Utente;
+
+	3. O Utente seleciona a opção "Criar coleção (Media)";
+
+	4. O Sistema pergunta qual o conteúdo que deve ser adicionado à nova coleção;
+
+	5. O Utente seleciona o conteúdo  (da sua conta pessoal);
+
+	6. O Sistema agrupa o conteúdo numa coleção e pergunta se quer manualmente categorizar o conteúdo ou gerar automaticamente;
+
+	7. O Utente seleciona a opção manual insere os dados (nome e categoria da coleção);
+
+	8. O Sistema cria a nova coleção e guarda-a na conta pessoal do Utente.
+
+	> Fluxo Alternativo 1: [A categoria é gerada automaticamente] (passo 6)
+
+	6.1. O Utente seleciona a opção de gerar automaticamente;
+
+	6.2. O Sistema pergunta qual o nome a atribuir à coleção;
+
+	6.3. O Sistema gera automaticamente a categoria da coleção e guarda a nova coleção na conta pessoal do Utente.
+
+	________________________________________________________________________
+
+	> Fluxo de Excepção 1: [Credenciais inválidas] (passo 1)
+
+	1.1. Sistema avisa sobre credenciais inválidas e reinicia.
+
+	> Fluxo de Excepção 2: [Nenhum conteúdo selecionado] (passo 5)
+
+	5.1. Sistema avisa o Utente que nenhum conteúdo foi selecionado.
+
+	5.2. Regressa a 4.
+
+
+4) Use Case: Categorizar coleções.
+
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Categorizar coleções do conteúdo no Sistema Media Center;
+
+	* Cenários: 
+
+		- (...) gastou algum tempo a organizar o conteúdo de acordo com a sua preferência (...);
+
+		- (...) tinha adicionado dois ou três álbuns classificados como Jazz, mas que para ele eram de Acid Jazz, e ainda não se tinha dado ao trabalho de lhes alterar a classificação (...);
+
+		- Cenário geral: O Utente pretende mudar o nome e/ou categoria do seu conteúdo.
+
+	* Pré-Condição: 
+
+		- O Utente tem de estar registado no sistema e conteúdo carregado na sua conta;
+
+	* Pós-Condição: 
+
+		- O Utente alterou a categoria de pelo menos uma coleção;
+	
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Utente autentica-se no Sistema com as suas credenciais;
+
+	2. O Sistema apresenta as suas funcionalidades e espera seleção por parte do Utente;
+
+	3. O Utente seleciona a opção "Categorizar coleção (Media)";
+
+	4. O Sistema pergunta qual coleção pretente categorizar;
+
+	5. O Utente seleciona a coleção (da sua conta pessoal);
+
+	6. O Sistema pergunta qual o novo nome e categoria que deve ser estabelecido na coleção;
+
+	7. O Utente insere os dados pedidos;
+
+	8. O Sistema altera os dados da sua coleção; 
+
+	________________________________________________________________________
+
+	> Fluxo de Excepção 1: [Credenciais inválidas] (passo 1)
+
+	1.1. Sistema avisa sobre credenciais inválidas e reinicia.
+
+	> Fluxo de Excepção 2: [Nenhum conteúdo selecionado ou selecionada mais que uma coleção] (passo 5)
+
+	5.1. Sistema avisa o Utente que selecionou de forma inválida.
+
+	5.2. Regressa a 4.
+
+5) Use Case: Reproduzir Conteúdo (Media).
+
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Reproduzir conteúdo presente no Sistema Media Center;
+
+	* Cenários: 
+
+		- Colocou-o (o Media Center) a tocar Jazz em modo aleatório (...);
+
+	* Pré-Condição: 
+
+		- O Media Center deve ter conteúdo para ser reproduzido;
+
+	* Pós-Condição: 
+
+		- O Utente alterou a categoria de pelo menos uma coleção;
+	
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Utente autentica-se no Sistema com as suas credenciais;
+
+	2. O Sistema apresenta as suas funcionalidades e espera seleção por parte do Utente;
+
+	3. O Utente seleciona a opção "Reproduzir (Media)";
+
+	4. O Sistema apresenta a lista de Coleções presentes (de todos os Utentes); 
+
+	5. O Utente seleciona a Coleção que pretente;
+
+	6. O Sistema pergunta se pretente reproduzir a Coleção completa ou selecionar um conteúdo específico;
+
+	7. O Utente seleciona a opção de reproduzir toda a coleção;
+
+	8. O Sistema pergunta se pretente reproduzir em modo normal ou aleatório;
+
+	9. O Utente seleciona o modo normal;
+
+	10. O Sistema reproduz a coleção toda desde o início (modo normal);
+
+	________________________________________________________________________
+
+	> Fluxo Alternativo 1: [O Utente seleciona a opção de reproduzir conteúdo específico de uma coleção] (passo 6)
+
+	6.1. O Utente seleciona a opção de reproduzir conteúdo específico de uma coleção;
+
+	6.2. O Sistema apresenta a lista de conteúdo presente na sua coleção esperando a seleção do Utente;
+
+	6.3. O Utente seleciona um elemento da coleção;
+
+	6.4. O Sistema reproduz esse elemento (Música ou Vídeo);
+
+	> Fluxo Alternativo 2: [O Utente escolhe a opção modo aleatório] (passo 8)
+
+	8.1. O Utente seleciona o modo aleatório;
+
+	8.2. O Sistema reproduz a coleção selecionada em modo aleatório;
+
+	________________________________________________________________________
+
+	> Fluxo de Excepção 1: [Credenciais inválidas] (passo 1)
+
+	1.1. Sistema avisa sobre credenciais inválidas e reinicia.
+
+	> Fluxo de Excepção 2: [Nenhuma coleção selecionada ou selecionada mais que uma] (passo 5)
+
+	5.1. Sistema avisa o Utente que selecionou de forma inválida.
+
+	5.2. Regressa a 4.
+
+	> Fluxo de Excepção 3: [Nenhuma coleção selecionada ou selecionada mais que uma] (passo 6.3)
+
+	6.3.1. Sistema avisa o Utente que selecionou de forma inválida.
+
+	6.3.2. Regressa a 6.2.
+
+6) Use Case: Eliminar Conteúdo (Media) (EXTRA AOS CENÁRIOS APRESENTADOS).
+
+	-------------------------------------------------------------------------
+									PARTE 1
+	-------------------------------------------------------------------------
+
+	* Descrição: 
+
+		- Eliminar conteúdo presente no Sistema Media Center;
+
+	* Cenários: 
+
+		- Um Utente pretende eliminar um certo conteúdo da sua conta pessoal;
+
+	* Pré-Condição: 
+
+		- O Utente deve ter conteúdo na sua conta para poder ser eliminado;
+
+	* Pós-Condição: 
+
+		- O Utente eliminou o conteúdo pretendido;
+	
+	-------------------------------------------------------------------------
+									PARTE 2
+	-------------------------------------------------------------------------
+
+	> Fluxo Normal:
+
+	1. O Utente autentica-se no Sistema com as suas credenciais;
+
+	2. O Sistema apresenta as suas funcionalidades e espera seleção por parte do Utente;
+
+	3. O Utente seleciona a opção "Eliminar Conteúdo (Media)";
+
+	4. O Sistema apresenta a lista de Coleções presentes (na sua conta pessoal); 
+
+	5. O Utente seleciona a/as Coleção que pretente;
+
+	6. O Sistema pergunta se pretente elminar a(s) Coleção(ões) completa(s) ou selecionar um conteúdo específico da(s) mesma(s);
+
+	7. O Utente seleciona a opção de eliminar toda(s) a(s) coleção(ões);
+
+	8. O Sistema remove os elementos da sua conta e apenas remove os ficheiros que não são comuns com outros Utentes do Sistema.
+
+	________________________________________________________________________
+
+	> Fluxo Alternativo 1: [O Utente seleciona a opção de eliminar conteúdo específico de uma (ou mais) coleção(ões)] (passo 6)
+
+	6.1. O Utente seleciona a opção de eliminar conteúdo específico de uma (ou mais) coleção(ões);
+
+	6.2. O Sistema apresenta a lista de conteúdo presente na sua seleção esperando a seleção do Utente;
+
+	6.3. O Utente seleciona o(s) elemento que pretente eliminar;
+
+	6.4. O Sistema elimina esse elemento (Música ou Vídeo);
+
+	________________________________________________________________________
+
+	> Fluxo de Excepção 1: [Credenciais inválidas] (passo 1)
+
+	1.1. Sistema avisa sobre credenciais inválidas e reinicia.
+
+	> Fluxo de Excepção 2: [Nenhuma coleção selecionada ou selecionada mais que uma] (passo 5)
+
+	5.1. Sistema avisa o Utente que selecionou de forma inválida.
+
+	5.2. Regressa a 4.
+
+	> Fluxo de Excepção 3: [Nenhum elemento selecionado] (passo 6.3)
+
+	6.3.1. Sistema avisa o Utente não selecionou nenhum elemento.
+
+	6.3.2. Regressa a 6.2.

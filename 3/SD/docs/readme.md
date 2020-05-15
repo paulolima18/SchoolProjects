@@ -1,0 +1,1 @@
+- meter clones no Store.
