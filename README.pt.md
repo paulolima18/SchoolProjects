@@ -1,4 +1,4 @@
-* Read this in other languages: [English](README.md), [Portuguese](README.pt.md)
+* Ler o documento num linguagem diferente: [Inglês](README.md), [Português](README.pt.md)
 
 <div align="center">
 	<h1><strong>Projetos da Universidade</strong></h1>
