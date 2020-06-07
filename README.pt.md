@@ -36,3 +36,7 @@ Algumas unidades curriculares têm também incluidos fichas e exercicios.
   * [Sistemas Distribuídos](3/SD)
 
   * [Redes de Computadores](3/RC)
+
+## 3.º ano - 2.º Semestre
+
+  * [Comunicações por Computador](3/CC)
