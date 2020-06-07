@@ -1,0 +1,47 @@
+$TTL    604800
+@       IN      SOA     dns.cc.pt. grupo7.cc.pt. (
+                  2     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800 )   ; Negative Cache TTL
+;
+; name servers - NS records
+     IN      NS      dns.cc.pt.
+     IN      NS      dns2.cc.pt.
+
+; SWITCH LAN 1
+Portatil1	IN	A	10.1.1.1
+Grupo7		IN	CNAME 	Portatil1
+
+Portatil2 	IN	A	10.1.1.2
+
+Portatil3 	IN	A	10.1.1.3
+
+; SWITCH LAN 2
+Alfa	IN	A	10.2.2.1
+
+Delta		IN	A	10.2.2.2
+
+Omega		IN	A	10.2.2.3
+
+
+; SWITCH LAN 3
+Serv1		IN	A	10.3.3.1
+dns		IN	A	10.3.3.1
+Serv3		IN	A	10.3.3.3
+www		IN	CNAME	Serv3
+mail		IN	MX	20	Serv3
+
+Serv2		IN	A	10.3.3.2
+pop		IN	CNAME	Serv2
+imap		IN	CNAME	Serv2
+mail		IN	MX	10	Serv3
+
+; SWITCH LAN 4
+Hermes		IN	A	10.4.4.1
+dns2		IN	A	10.4.4.1
+
+Zeus		IN	A	10.4.4.2
+
+Atena		IN	A	10.4.4.3
