@@ -1,0 +1,13 @@
+#define ZERO 0
+#define ONE 1
+#define N_BRANCHES 3
+#define MONTHS 12
+#define CLIENT_CODE_SIZE 5
+#define PRODUCT_CODE_SIZE 6
+#define N 0
+#define P 1
+#define N_TYPES 2
+#define ELEMENTS_PER_PAGE 10
+#define CLIENTS_PATH "data/Clientes.txt"
+#define PRODUCTS_PATH "data/Produtos.txt"
+#define SALES_PATH "data/Vendas_1M.txt"

@@ -7,7 +7,11 @@
 * [Maria Silva](https://github.com/msilva99)
 
 
-## Files
+## C Project
 
-* Place test files in the data folder.
+* Project in C
+
+## Java Project
+
+* Project in java
 
