@@ -1,0 +1,658 @@
+
+<!-- 
+
+Solar System configuration file 
+NB: Standard sphere was generated with radius 1
+
+-->
+
+<scene>
+
+    <lights> 
+        <!-- Main light source, simulates sun light -->    
+        <light  type="POINT" posX="0" posY="0" posZ="0" />
+    </lights>
+
+    <!-- Planets and moons setup Group -->
+    <group>
+
+        <scale X="10" Y="10" Z="10"/>
+       
+        <group>
+                        
+            <!-- Teapot Comet -->
+
+            <group>
+
+                <translate time="20">
+                    <point X="0" Y="2" Z="-20"/>
+                    <point X="-20" Y="2" Z="0"/>
+                    <point X="-20" Y="4" Z="20"/>
+                    <point X="0" Y="2" Z="20"/>
+                    <point X="13" Y="2" Z="0"/>
+                </translate>
+    
+                <scale X="0.15" Y="0.15" Z="0.15"/>
+
+                <rotate angle="-90" axisX="1" axisY="0" axisZ="0" />
+
+                <models>
+                    <model file="teapot.3d.indexed" 
+                           texture="pattern2.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                        />
+                </models>
+
+            </group>
+
+            <!-- Other Comet -->
+
+            <group>
+
+                <translate time="30.00">
+                    <point X="80.00" Y="0.00" Z="0.00" />
+                    <point X="56.57" Y="0.00" Z="-56.57" />
+                    <point X="0.00" Y="0.00" Z="-80.00" />
+                    <point X="-56.57" Y="0.00" Z="-56.57" />
+                    <point X="-80.00" Y="0.00" Z="0.00" />
+                    <point X="-56.57" Y="0.00" Z="56.57" />
+                    <point X="0.00" Y="0.00" Z="80.00" />
+                    <point X="56.57" Y="0.00" Z="56.57" />
+                </translate>
+   
+                <scale X="2" Y="0.4" Z="0.4"/>
+
+                <rotate angle="-90" axisX="0" axisY="0" axisZ="1" />
+
+                 <group>
+                    
+                    <models>
+                        <model file="cone.3d.indexed" 
+                               texture="space-craft.jpg" 
+                               ambiR="1" ambiG="1" ambiB="1"
+                               diffR="1" diffG="1" diffB="1"
+                            />
+                        <model file="sphere.3d.indexed" 
+                               texture="face1.png" 
+                               ambiR="1" ambiG="1" ambiB="1"
+                               diffR="1" diffG="1" diffB="1"
+                            />
+                    </models>
+
+                </group>
+            </group>
+
+        </group>
+    
+        <group>
+            
+            <!-- Sun -->
+    
+            <scale X="3.4" Y="3.4" Z="3.4"/>
+            
+            <group>
+                <models>
+                    <model file="sphere.3d.indexed" texture="sun.jpg"
+                           emisR="1" emisG="1" emisB="1" />
+                </models>
+            </group>
+        
+        </group>
+
+        <group>
+
+            <!-- Mercury -->
+
+            <!-- Planet orbit -->
+
+            <translate time="1.44">
+                <point X="5.50" Y="0.00" Z="0.00" />
+                <point X="3.89" Y="0.00" Z="-3.89" />
+                <point X="0.00" Y="0.00" Z="-5.50" />
+                <point X="-3.89" Y="0.00" Z="-3.89" />
+                <point X="-5.50" Y="0.00" Z="0.00" />
+                <point X="-3.89" Y="0.00" Z="3.89" />
+                <point X="0.00" Y="0.00" Z="5.50" />
+                <point X="3.89" Y="0.00" Z="3.89" />
+            </translate>
+
+            <scale X="0.02" Y="0.02" Z="0.02"/>
+
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="348" axisX="0" axisY="1" axisZ="0" />
+
+                <models>
+                    <model file="sphere.3d.indexed"  
+                           texture="mercury.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                        />
+                </models>
+
+            </group>
+        </group>
+
+        <group>
+            
+            <!-- Venus -->
+            
+            <!-- Planet orbit -->
+
+            <translate time="3.69">
+                <point X="6.50" Y="0.00" Z="0.00" />
+                <point X="4.60" Y="0.00" Z="-4.60" />
+                <point X="0.00" Y="0.00" Z="-6.50" />
+                <point X="-4.60" Y="0.00" Z="-4.60" />
+                <point X="-6.50" Y="0.00" Z="0.00" />
+                <point X="-4.60" Y="0.00" Z="4.60" />
+                <point X="0.00" Y="0.00" Z="6.50" />
+                <point X="4.60" Y="0.00" Z="4.60" />
+            </translate>
+
+            <scale X="0.04" Y="0.04" Z="0.04"/>
+            
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="696" axisX="0" axisY="1" axisZ="0" />
+
+                <models>
+                    <model file="sphere.3d.indexed"  
+                           texture="venus.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                            />
+                </models>
+
+            </group>
+        </group>
+
+        <group>
+
+            <!-- Earth -->
+
+            <!-- Planet orbit -->
+
+            <translate time="5.9">
+                <point X="7.50" Y="0.00" Z="0.00" />
+                <point X="5.30" Y="0.00" Z="-5.30" />
+                <point X="0.00" Y="0.00" Z="-7.50" />
+                <point X="-5.30" Y="0.00" Z="-5.30" />
+                <point X="-7.50" Y="0.00" Z="0.00" />
+                <point X="-5.30" Y="0.00" Z="5.30" />
+                <point X="0.00" Y="0.00" Z="7.50" />
+                <point X="5.30" Y="0.00" Z="5.30" />
+            </translate>    
+
+            <scale X="0.15" Y="0.15" Z="0.15"/>
+                        
+            <group>
+
+                <!-- Planet axis rotation -->
+                
+                <rotate time="6" axisX="0" axisY="1" axisZ="0" />
+
+                <group>
+                    
+                    <rotate angle="23.5" axisX="1" axisY="0" axisZ="0" />
+        
+                    <models>
+                        <model file="sphere.3d.indexed" 
+                               texture="earth.jpg" 
+                               ambiR="1" ambiG="1" ambiB="1"
+                               diffR="1" diffG="1" diffB="1"
+                                />
+                    </models>
+
+                </group>
+
+            </group>
+        
+            <!-- Moon -->
+
+            <group>
+
+                <rotate angle="10" axisX="1" axisY="0" axisZ="0" />
+
+                <!-- Moon axis rotation -->
+
+                <translate time="1.00">
+                    <point X="2.00" Y="0.00" Z="0.00" />
+                    <point X="1.41" Y="0.00" Z="-1.41" />
+                    <point X="0.00" Y="0.00" Z="-2.00" />
+                    <point X="-1.41" Y="0.00" Z="-1.41" />
+                    <point X="-2.00" Y="0.00" Z="0.00" />
+                    <point X="-1.41" Y="0.00" Z="1.41" />
+                    <point X="0.00" Y="0.00" Z="2.00" />
+                    <point X="1.41" Y="0.00" Z="1.41" />
+                </translate>
+
+                <scale X="0.2" Y="0.2" Z="0.2"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="earth-moon.jpg" />
+                    </models>
+
+                </group>
+            </group>        
+
+        </group>
+
+        <group>
+
+            <!-- Mars -->
+
+            <!-- Planet orbit -->
+
+            <translate time="11.00">
+                <point X="9.00" Y="0.00" Z="0.00" />
+                <point X="6.36" Y="0.00" Z="-6.36" />
+                <point X="0.00" Y="0.00" Z="-9.00" />
+                <point X="-6.36" Y="0.00" Z="-6.36" />
+                <point X="-9.00" Y="0.00" Z="0.00" />
+                <point X="-6.36" Y="0.00" Z="6.36" />
+                <point X="0.00" Y="0.00" Z="9.00" />
+                <point X="6.36" Y="0.00" Z="6.36" />
+            </translate>
+
+            <scale X="0.03" Y="0.03" Z="0.03"/>
+
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="6.1" axisX="0" axisY="1" axisZ="0" />
+
+                <models>
+                    <model file="sphere.3d.indexed" 
+                           texture="mars.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                             />
+                </models>
+
+            </group>
+
+            <!-- Moon (representing only one moon - deimos) -->
+
+            <group>
+
+                <!-- Moon axis rotation -->
+
+                <translate time="1.00">
+                    <point X="2.00" Y="0.00" Z="0.00" />
+                    <point X="1.41" Y="0.00" Z="-1.41" />
+                    <point X="0.00" Y="0.00" Z="-2.00" />
+                    <point X="-1.41" Y="0.00" Z="-1.41" />
+                    <point X="-2.00" Y="0.00" Z="0.00" />
+                    <point X="-1.41" Y="0.00" Z="1.41" />
+                    <point X="0.00" Y="0.00" Z="2.00" />
+                    <point X="1.41" Y="0.00" Z="1.41" />
+                </translate>
+
+                <scale X="0.2" Y="0.2" Z="0.2"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed" />
+                    </models>
+
+                </group>
+
+            </group> 
+
+        </group>
+
+        <group>
+
+            <!-- Jupiter -->
+
+            <!-- Planet orbit -->
+            
+            <translate time="15.00">
+                <point X="13.00" Y="0.00" Z="0.00" />
+                <point X="9.19" Y="0.00" Z="-9.19" />
+                <point X="0.00" Y="0.00" Z="-13.00" />
+                <point X="-9.19" Y="0.00" Z="-9.19" />
+                <point X="-13.00" Y="0.00" Z="0.00" />
+                <point X="-9.19" Y="0.00" Z="9.19" />
+                <point X="0.00" Y="0.00" Z="13.00" />
+                <point X="9.19" Y="0.00" Z="9.19" />
+            </translate>
+
+            <scale X="0.4115" Y="0.4115" Z="0.4115"/>
+            
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="3.5" axisX="0" axisY="1" axisZ="0" />
+
+                <models>
+                    <model file="sphere.3d.indexed"
+                           texture="jupiter.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                            />
+                </models>
+
+            </group>
+
+            <!-- Moon 1 -->
+
+            <group>
+
+                <rotate angle="-10" axisX="1" axisY="0" axisZ="0" />
+
+                <!-- Moon axis rotation -->
+
+                <translate time="4.00">
+                    <point X="2.00" Y="0.00" Z="0.00" />
+                    <point X="1.41" Y="0.00" Z="-1.41" />
+                    <point X="0.00" Y="0.00" Z="-2.00" />
+                    <point X="-1.41" Y="0.00" Z="-1.41" />
+                    <point X="-2.00" Y="0.00" Z="0.00" />
+                    <point X="-1.41" Y="0.00" Z="1.41" />
+                    <point X="0.00" Y="0.00" Z="2.00" />
+                    <point X="1.41" Y="0.00" Z="1.41" />
+                </translate>
+
+                <scale X="0.2" Y="0.2" Z="0.2"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="jupiter-moon.jpg" />
+                    </models>
+
+                </group>
+
+            </group> 
+
+            <!-- Moon 2 -->
+
+            <group>
+
+                <rotate angle="30" axisX="1" axisY="0" axisZ="0" />
+
+                <!-- Moon axis rotation -->
+
+                <translate time="9.00">
+                    <point X="2.00" Y="0.00" Z="0.00" />
+                    <point X="1.41" Y="0.00" Z="-1.41" />
+                    <point X="0.00" Y="0.00" Z="-2.00" />
+                    <point X="-1.41" Y="0.00" Z="-1.41" />
+                    <point X="-2.00" Y="0.00" Z="0.00" />
+                    <point X="-1.41" Y="0.00" Z="1.41" />
+                    <point X="0.00" Y="0.00" Z="2.00" />
+                    <point X="1.41" Y="0.00" Z="1.41" />
+                </translate>
+
+                <scale X="0.15" Y="0.15" Z="0.15"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="jupiter-moon.jpg" />
+                    </models>
+
+                </group>
+                
+            </group> 
+
+        </group>
+
+        <group>
+
+            <!-- Saturn -->
+
+            <!-- Planet orbit -->
+            
+            <translate time="19.00">
+                <point X="19.00" Y="0.00" Z="0.00" />
+                <point X="13.44" Y="0.00" Z="-13.44" />
+                <point X="0.00" Y="0.00" Z="-19.00" />
+                <point X="-13.44" Y="0.00" Z="-13.44" />
+                <point X="-19.00" Y="0.00" Z="0.00" />
+                <point X="-13.44" Y="0.00" Z="13.44" />
+                <point X="0.00" Y="0.00" Z="19.00" />
+                <point X="13.44" Y="0.00" Z="13.44" />
+            </translate>
+
+            <scale X="0.3469" Y="0.3469" Z="0.3469" />
+            
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="3.6" axisX="0" axisY="0" axisZ="1" />
+
+                <models>
+                    <model file="sphere.3d.indexed"
+                           texture="saturn.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                            />
+                </models>
+
+            </group>
+
+            <!-- Moon 1 -->
+
+            <group>
+
+                <rotate angle="-75" axisX="0" axisY="0" axisZ="1" />
+
+                <!-- Moon axis rotation -->
+
+                <translate time="4.00">
+                    <point X="2.00" Y="0.00" Z="0.00" />
+                    <point X="1.41" Y="0.00" Z="-1.41" />
+                    <point X="0.00" Y="0.00" Z="-2.00" />
+                    <point X="-1.41" Y="0.00" Z="-1.41" />
+                    <point X="-2.00" Y="0.00" Z="0.00" />
+                    <point X="-1.41" Y="0.00" Z="1.41" />
+                    <point X="0.00" Y="0.00" Z="2.00" />
+                    <point X="1.41" Y="0.00" Z="1.41" />
+                </translate>
+
+                <scale X="0.2" Y="0.2" Z="0.2"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="jupiter-moon.jpg" />
+                    </models>
+
+                </group>
+
+            </group> 
+
+            <!-- Moon 2 -->
+
+            <group>
+
+                <rotate angle="90" axisX="0" axisY="0" axisZ="1" />
+
+                <!-- Moon axis rotation -->
+
+                <translate time="9.00">
+                    <point X="2.00" Y="0.00" Z="0.00" />
+                    <point X="1.41" Y="0.00" Z="-1.41" />
+                    <point X="0.00" Y="0.00" Z="-2.00" />
+                    <point X="-1.41" Y="0.00" Z="-1.41" />
+                    <point X="-2.00" Y="0.00" Z="0.00" />
+                    <point X="-1.41" Y="0.00" Z="1.41" />
+                    <point X="0.00" Y="0.00" Z="2.00" />
+                    <point X="1.41" Y="0.00" Z="1.41" />
+                </translate>
+
+                <scale X="0.15" Y="0.15" Z="0.15"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="jupiter-moon.jpg" />
+                    </models>
+
+                </group>
+                
+            </group> 
+
+        </group>
+
+        <group>
+
+            <!-- Urano -->
+
+            <!-- Planet orbit -->
+            
+            <translate time="20.00">
+                <point X="25.00" Y="0.00" Z="0.00" />
+                <point X="17.68" Y="0.00" Z="-17.68" />
+                <point X="0.00" Y="0.00" Z="-25.00" />
+                <point X="-17.68" Y="0.00" Z="-17.68" />
+                <point X="-25.00" Y="0.00" Z="0.00" />
+                <point X="-17.68" Y="0.00" Z="17.68" />
+                <point X="0.00" Y="0.00" Z="25.00" />
+                <point X="17.68" Y="0.00" Z="17.68" />
+            </translate>
+
+            <scale X="0.1471" Y="0.1471" Z="0.1471"/>
+            
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="4.2" axisX="0" axisY="0" axisZ="1" />
+
+                <models>
+                    <model file="sphere.3d.indexed"
+                           texture="uranus.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                            />
+                </models>
+
+            </group>
+
+            <!-- Moon 1 -->
+
+            <group>
+
+                <rotate angle="-90" axisX="0" axisY="0" axisZ="1" />
+
+                <!-- Moon axis rotation -->
+            
+                <translate time="4.00">
+                    <point X="6.00" Y="0.00" Z="0.00" />
+                    <point X="4.24" Y="0.00" Z="-4.24" />
+                    <point X="0.00" Y="0.00" Z="-6.00" />
+                    <point X="-4.24" Y="0.00" Z="-4.24" />
+                    <point X="-6.00" Y="0.00" Z="0.00" />
+                    <point X="-4.24" Y="0.00" Z="4.24" />
+                    <point X="0.00" Y="0.00" Z="6.00" />
+                    <point X="4.24" Y="0.00" Z="4.24" />
+                </translate>
+
+                <scale X="0.2" Y="0.2" Z="0.2"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="jupiter-moon.jpg" />
+                    </models>
+
+                </group>
+
+            </group> 
+
+        </group>
+
+        <group>
+
+            <!-- Neptune -->
+
+            <!-- Planet orbit -->
+            
+            <translate time="30.00">
+                <point X="31.00" Y="0.00" Z="0.00" />
+                <point X="21.92" Y="0.00" Z="-21.92" />
+                <point X="0.00" Y="0.00" Z="-31.00" />
+                <point X="-21.92" Y="0.00" Z="-21.92" />
+                <point X="-31.00" Y="0.00" Z="0.00" />
+                <point X="-21.92" Y="0.00" Z="21.92" />
+                <point X="0.00" Y="0.00" Z="31.00" />
+                <point X="21.92" Y="0.00" Z="21.92" />
+            </translate>
+
+            <scale X="0.1426" Y="0.1426" Z="0.1426"/>
+             
+            <group>
+
+                <!-- Planet axis rotation -->
+
+                <rotate time="4" axisX="1" axisY="1" axisZ="1" />
+
+                <models>
+                    <model file="sphere.3d.indexed"
+                           texture="neptune.jpg" 
+                           ambiR="1" ambiG="1" ambiB="1"
+                           diffR="1" diffG="1" diffB="1"
+                            />
+                </models>
+
+            </group>
+
+            <!-- Moon 1 -->
+
+            <group>
+
+                <rotate angle="-10" axisX="1" axisY="0" axisZ="0" />
+
+                <!-- Moon axis rotation -->
+            
+                <translate time="4.00">
+                    <point X="6.00" Y="0.00" Z="0.00" />
+                    <point X="4.24" Y="0.00" Z="-4.24" />
+                    <point X="0.00" Y="0.00" Z="-6.00" />
+                    <point X="-4.24" Y="0.00" Z="-4.24" />
+                    <point X="-6.00" Y="0.00" Z="0.00" />
+                    <point X="-4.24" Y="0.00" Z="4.24" />
+                    <point X="0.00" Y="0.00" Z="6.00" />
+                    <point X="4.24" Y="0.00" Z="4.24" />
+                </translate>
+
+                <scale X="0.2" Y="0.2" Z="0.2"/>
+    
+                <group>
+
+                    <models>
+                        <model file="sphere.3d.indexed"
+                               texture="jupiter-moon.jpg" />
+                    </models>
+
+                </group>
+
+            </group> 
+
+        </group>
+
+    </group>
+</scene>
+
+

@@ -41,3 +41,4 @@ Some curricular units have also included worksheets and exercises.
    
   * [Computer Communications](3/CC)
 
+  * [Computer Graphics](3/CG)

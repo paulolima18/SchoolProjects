@@ -40,3 +40,5 @@ Algumas unidades curriculares têm também incluidos fichas e exercicios.
 ## 3.º ano - 2.º Semestre
 
   * [Comunicações por Computador](3/CC)
+
+  * [Computação Gráfica](3/CG)

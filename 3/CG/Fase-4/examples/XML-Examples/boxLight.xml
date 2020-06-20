@@ -1,0 +1,128 @@
+<scene>
+
+	<lights>
+		<light type="POINT" X="0" Y="0" Z="0" 
+			   ambiR="1" ambiG="1" ambiB="1"/>
+	</lights>
+	
+    <group>
+
+    	<group> 
+			<translate X="0" Z="0" Y="0"/>
+			<scale X="0.75" Y="0.75" Z="0.75" />
+    		<models> 
+    			<model file="sphere.3d.indexed"
+    			       texture="sun.jpg" 
+    				   emisR="1" emisG="1" emisB="1"/>
+    		</models>
+
+    	</group>
+
+    	<group>
+
+    		<group>
+
+		    	<translate X="0" Z="-5" Y="14"/>
+
+		    	<rotate angle="180" axisX="1"/>
+
+		    	<group>
+			        <models>
+			            <model file="plane.3d.indexed"
+			            	   texture="wd-box.png"
+			            	   diffR="1" diffG="1" diffB="0"/>
+			        </models>
+			    </group>
+
+			</group>
+
+    		<group>
+
+		    	<translate X="0" Z="-5" Y="-14"/>
+
+		    	<group>
+			        <models>
+			            <model file="plane.3d.indexed"
+			            	   texture="wd-box.png"
+			            	   diffR="1" diffG="1" diffB="0"/>
+			        </models>
+
+			    </group>
+
+			</group>
+
+			<group>
+
+		    	<translate X="0" Z="-20" Y="0"/>
+
+		    	<rotate angle="90" axisX="1"/>
+
+		    	<group>
+					<rotate angle="-90" axisY="1"/>
+			        <models>
+			            <model file="plane.3d.indexed"
+			            	   texture="wd-box.png"
+			            	   diffR="1" diffG="1" diffB="0"/>
+			        </models>
+
+			    </group>
+
+			</group>
+
+			<group>
+
+		    	<translate X="0" Z="10" Y="0"/>
+
+		    	<rotate angle="-90" axisX="1"/>
+
+		    	<group>
+					<rotate angle="-90" axisY="1"/>
+			        <models>
+			            <model file="plane.3d.indexed"
+			            	   texture="wd-box.png"
+			            	   diffR="1" diffG="1" diffB="0"/>
+			        </models>
+
+			    </group>
+
+			</group>
+
+			<group>
+
+		    	<translate X="14" Z="-5" Y="0"/>
+
+		    	<rotate angle="90" axisZ="1"/>
+
+		    	<group>
+			        <models>
+			            <model file="plane.3d.indexed"
+			            	   texture="wd-box.png"
+			            	   diffR="1" diffG="1" diffB="0"/>
+			        </models>
+
+			    </group>
+
+			</group>
+
+			<group>
+
+		    	<translate X="-14" Z="-5" Y="0"/>
+
+		    	<rotate angle="-90" axisZ="1"/>
+
+		    	<group>
+			        <models>
+			            <model file="plane.3d.indexed"
+			            	   texture="wd-box.png"
+			            	   diffR="1" diffG="1" diffB="0"/>
+			        </models>
+
+			    </group>
+
+			</group>
+
+		</group>
+
+    </group>
+
+</scene>
