@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for filepath in resources/toml/*.toml; do
+    xbase=${filepath##*/}
+    xpref=${xbase%.*}
+    ./toml2Json < "resources/toml/"${xpref}".toml" > "resources/json/"${xpref}".json"
+done
