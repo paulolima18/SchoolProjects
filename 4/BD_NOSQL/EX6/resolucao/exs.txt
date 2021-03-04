@@ -1,0 +1,47 @@
+-- ex3
+
+MATCH (p:Person)-[c:ACTED_IN]->(matrix:Movie {title: "The Matrix"})
+RETURN p["name"], c["roles"]
+
+-- ex4
+
+MATCH (p:Person {name: "Tom Hanks"})-[c:ACTED_IN]->(m:Movie) RETURN m
+
+-- ex5
+MATCH (p:Person {name: "Tom Hanks"})-[c:ACTED_IN]->(m:Movie)
+WHERE m.released >= 2000
+RETURN m
+
+-- ex6
+MATCH (p:Person)-[d:DIRECTED]->(m:Movie),
+(p)-[a:ACTED_IN]->(m)
+RETURN p,m
+
+-- ex7
+
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie)
+WHERE p.name = "Keanu Reeves"
+AND a.roles = ["Neo"]
+RETURN p,m
+
+-- ex8
+
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie)<-[d:DIRECTED]-(director:Person)
+RETURN p.name, director.name
+
+-- ex9
+
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie)
+RETURN p,count(m)
+
+-- ex10
+
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie)<-[d:DIRECTED]-(director:Person)
+RETURN p.name, director.name, count(m)
+
+-- ex11
+
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie)
+RETURN p, count(m)
+ORDER BY count(m) DESC
+LIMIT 5

@@ -59,6 +59,8 @@ Some curricular units have also included worksheets and exercises.
 
   * [Data analysis](4/AD)
 
+  * [NoSQL Databases](4/BD_NOSQL)
+
 ## 4.º year - 2.º Semester
 
   * [Autonomous Systems]

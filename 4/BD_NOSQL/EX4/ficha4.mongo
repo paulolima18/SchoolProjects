@@ -1,0 +1,264 @@
+[--1--Part1]
+
+docker exec -it <id-container-mongo> bash
+mongo
+
+1)
+show dbs
+
+2)
+use customers
+
+3)
+db
+
+4)
+db.createCollection("customers")
+
+5)
+show collections
+
+6)
+db.customers.insert({
+  first_name: "John",
+  last_name: "Doe",
+  age: 30
+})
+
+7)
+var customers_a = [{
+    first_name: "Steven",
+    last_name:"Williams",
+    gender: "male"
+  },
+  {
+    first_name: "Mary",
+    last_name: "Troy",
+    age: 19
+  }
+];
+
+db.customers.insert(customers_a);
+
+8)
+db.customers.insert({
+  first_name: "Ric",
+  last_name: "Foe",
+  address:{
+    street:"4 main st",
+    city:"Boston"
+  }
+})
+
+9)
+db.customers.insert({
+  first_name: "Ana",
+  last_name: "Durant",
+  degree:["phD","Msc"],
+  address: {
+    street: "4 Square Garden",
+    city: "New York"
+    },
+  age: 32
+})
+
+10)
+db.customers.insert({
+  first_name: "Natalia",
+  last_name:"Will",
+  age: 44,
+  gender: "female"
+})
+
+
+11)
+db.customers.find()
+
+12)
+db.customers.find().pretty()
+
+13)
+db.customers.update({first_name: "Ric"}, {$set: {age: 45}})
+
+14)
+db.customers.find({last_name:"Will"})
+
+15)
+db.customers.update({first_name: "Steven"}, {$set: {age: 35}})
+
+16)
+db.customers.find({first_name:"Ana", age:{$gt:30}}).forEach(function(doc){
+  db.customers.update({first_name:doc.first_name}, {$set: {age: doc.age+10}})
+});
+
+17)
+db.customers.update({first_name:"Ric"}, {$unset: {age: 0}})
+
+18)
+db.customers.update(
+  {first_name:"Jimmy"},
+  {$set: {first_name: "Jimmy", last_name: "Connors", age: 25, gender: "male"}},
+  {upsert:true}
+)
+
+19)
+db.customers.find({age:{$gte:25}}).pretty()
+
+20)
+db.customers.find({gender:"male"}).pretty()
+
+21)
+db.customers.remove({first_name: "Mary"})
+
+22)
+db.customers.find({
+  $or: [
+    {first_name: "Ana"},
+    {first_name: "Ric"}
+  ]
+})
+
+[--2--restaurants.json]
+
+1)
+db.restaurants.find({})
+
+2)
+db.restaurants.find({},{restaurante_id: 1, name: 1, borough: 1, cuisine: 1}).pretty()
+
+3)
+db.restaurants.find({},{_id: 0, restaurante_id: 1, name: 1, borough: 1, cuisine: 1}).pretty()
+
+4)
+db.restaurants.find({},{_id: 0, restaurante_id: 1, name: 1, borough: 1, zipcode: 1}).pretty();
+
+5)
+db.restaurants.find({borough:"Bronx"}).pretty()
+
+6)
+db.restaurants.find({borough:"Bronx"}).limit(5).pretty()
+
+7)
+db.restaurants.find({borough:"Bronx"}).skip(5).limit(5).pretty()
+
+8)
+db.restaurants.find({
+  grades: {
+    $elemMatch: {
+      score : {
+        $gte: 90
+      }
+    }
+  }
+})
+
+9)
+db.restaurants.find({
+  grades: {
+    $elemMatch: {
+      $and: [
+        {score: {$gt: 80}},
+        {score: {$lt: 100}}
+      ]
+    }
+  }
+})
+
+10)
+db.restaurants.find({
+  "address.coord.0":{$lt: -74.0163793}
+})
+
+11)
+db.restaurants.update(
+  {cuisine:"American "},
+  {$set: {cuisine: "American"}},
+  {multi: true}
+)
+
+12 && 13)
+db.restaurants.find({
+  $and:[
+    {cuisine:{$ne:"American"}},
+    {"address.coord.0":{$lt: -65.754168}},
+    {grades: {$elemMatch:{score:{$gt: 70}}}}
+  ]
+})
+
+14)
+db.restaurants.find({
+  $and:[
+    {cuisine:{$ne:"American"}},
+    {grades: {$elemMatch:{grade:"A"}}},
+    {borough:{$ne:"Brooklyn"}},
+  ]
+}).sort({cuisine: -1}).pretty()
+
+15)
+db.restaurants.find({
+  $and:[
+    {$or:[
+      {cuisine:"American"},
+      {cuisine:"Chinese"}
+    ]},
+    {borough: "Bronx"}
+  ]
+}).pretty()
+
+16)
+db.restaurants.find({
+  $and:[
+    {"address.coord.0":{$type:1}},
+    {"address.coord.1":{$type:1}},
+  ]
+}).pretty()
+
+17)
+db.restaurants.find({
+  "address.street":{$exists:true}
+})
+
+18)
+db.restaurants.find({}).sort({cuisine: 1, borough: -1}).pretty()
+
+19)
+db.restaurants.find({
+  $and:[
+    {"address.coord.1":{$gt:42}},
+    {"address.coord.1":{$lt:52}}
+  ]
+},{
+  restaurant_id: 1,
+  name: 1,
+  address: 1,
+  coord: 1
+}).pretty()
+
+20
+db.restaurants.find({
+  grades: {
+    $elemMatch: {
+      score: {$lte: 10}
+    }
+  }
+}, {
+  restaurant_id: 1,
+  name: 1,
+  borough: 1,
+  cuisine: 1
+}).pretty()
+
+21)
+db.restaurants.find({
+  $or:[
+    {borough:{$ne:"Staten Islan"}},
+    {borough:{$ne:"Queens"}},
+    {borough:{$ne:"Bronx"}},
+    {borough:{$ne:"Brooklin"}}
+  ]
+}, {
+  restaurant_id: 1,
+  name: 1,
+  borough: 1,
+  cuisine: 1
+}).pretty()

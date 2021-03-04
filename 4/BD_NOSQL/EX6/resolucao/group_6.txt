@@ -1,0 +1,47 @@
+--3
+match (p:Person)-[r:ACTED_IN ]->(m:Movie {title: "The Matrix"})
+return p.name as actor, r.roles as personagem;
+
+--4
+match (p:Person {name: "Tom Hanks"})-[:ACTED_IN]->(m:Movie)
+return p,m;
+
+--5
+match (p:Person {name: "Tom Hanks"})-[:ACTED_IN]->(m:Movie)
+where m.released>2000
+return p,m;
+
+--6
+match (p:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(p)
+return p,m;
+
+--7
+match (p:Person {name:"Keanu Reeves"})-[r:ACTED_IN {roles:["Neo"]}]->(m:Movie)
+return p,r,m;
+
+--8
+match (actor:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(director:Person)
+where not(actor.name = director.name)
+return actor.name, director.name, m.title
+order by actor.name
+
+--9
+match (actor:Person)-[:ACTED_IN]->(m:Movie)
+return actor.name, count(*)
+
+--10
+match (actor:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(director:Person)
+where not(actor.name = director.name)
+return actor.name, director.name, count(m)
+order by count(m) desc
+
+testar
+match (actor:Person {name: "Hugo Weaving"})-[r:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(director:Person {name: "Lana Wachowski"})
+return actor,r,m, director
+
+
+--11
+match (actor:Person)-[:ACTED_IN]->(m:Movie)
+return actor.name, count(*) as filmes
+order by filmes desc
+limit 5

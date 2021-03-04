@@ -59,6 +59,8 @@ Algumas unidades curriculares têm também incluidos fichas e exercicios.
 
   * [Análise de Dados](4/AD)
 
+  * [Bases de Dados NoSQL](4/BD_NOSQL)
+
 ## 4.º ano - 2.º Semestre
 
   * [Autonomous Systems]
