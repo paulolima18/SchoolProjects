@@ -41,8 +41,30 @@ Some curricular units have also included worksheets and exercises.
 
   * [Computer Networks](3/RC)
 
+  * [MNOL](3/MNOL)
+
 ## 3.º year - 2.º Semester
-   
+
   * [Computer Communications](3/CC)
 
   * [Computer Graphics](3/CG)
+
+## 4.º year - 1.º Semester
+
+  * [Smart Agents](4/AI)
+
+  * [Learning and knowledge extraction](4/AEC)
+
+  * [Administration and exploitation of databases](4/AEBD)
+
+  * [Data analysis](4/AD)
+
+## 4.º year - 2.º Semester
+
+  * [Autonomous Systems]
+
+  * [Natural Computation]
+
+  * [Semantic interoperability]
+
+  * [Discovery of knowledge]

@@ -41,8 +41,30 @@ Algumas unidades curriculares têm também incluidos fichas e exercicios.
 
   * [Redes de Computadores](3/RC)
 
+  * [MNOL](3/MNOL)
+
 ## 3.º ano - 2.º Semestre
 
   * [Comunicações por Computador](3/CC)
 
   * [Computação Gráfica](3/CG)
+
+## 4.º ano - 1.º Semestre
+
+  * [Agentes Inteligentes](4/AI)
+
+  * [Aprendizagem e Extração de conhecimento](4/AEC)
+
+  * [Administração e exploração de bases de dados](4/AEBD)
+
+  * [Análise de Dados](4/AD)
+
+## 4.º ano - 2.º Semestre
+
+  * [Autonomous Systems]
+
+  * [Natural Computation]
+
+  * [Semantic interoperability]
+
+  * [Discovery of knowledge]

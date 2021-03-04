@@ -1,0 +1,88 @@
+-- 1)
+SELECT * 
+FROM JOBS jobs_a
+WHERE jobs_a.MIN_SALARY > 10000;
+
+-- 2)
+SELECT em_a.FIRST_NAME, em_a.LAST_NAME, em_a.HIRE_DATE
+FROM EMPLOYEES em_a
+where em_a.HIRE_DATE >= date '2001-01-01'
+    AND em_a.HIRE_DATE <= date '2005-12-31'
+ORDER BY em_a.HIRE_DATE;
+
+-- 3)
+SELECT em_a.FIRST_NAME, em_a.LAST_NAME, em_a.HIRE_DATE, jobs_a.JOB_TITLE
+FROM EMPLOYEES em_a, JOBS jobs_a
+where em_a.JOB_ID = jobs_a.JOB_ID
+    AND (jobs_a.JOB_TITLE = 'Programmer' 
+        OR  jobs_a.JOB_TITLE = 'Sales Representative'
+        );
+
+-- 4)
+SELECT em_a.FIRST_NAME, em_a.LAST_NAME, em_a.HIRE_DATE
+FROM EMPLOYEES em_a
+where em_a.HIRE_DATE >= date '2003-01-01';
+
+-- 5)
+SELECT em_a.FIRST_NAME, em_a.LAST_NAME, em_a.HIRE_DATE
+FROM EMPLOYEES em_a
+where em_a.EMPLOYEE_ID >= 140
+    AND em_a.EMPLOYEE_ID <= 170;
+
+-- 6)
+SELECT em_a.LAST_NAME, em_a.COMMISSION_PCT, em_a.HIRE_DATE
+FROM EMPLOYEES em_a
+where em_a.SALARY < 12000;
+
+-- 7)
+SELECT DISTINCT jobs_a.JOB_TITLE, (jobs_a.MAX_SALARY-jobs_a.MIN_SALARY)
+FROM EMPLOYEES em_a, JOBS jobs_a
+where em_a.JOB_ID = jobs_a.JOB_ID
+    AND jobs_a.MAX_SALARY >= 10000
+    AND jobs_a.MAX_SALARY <= 20000;
+
+-- 8)
+SELECT em_a.FIRST_NAME, em_a.SALARY, ROUND(em_a.SALARY/1000.0) as SalaryK
+FROM EMPLOYEES em_a
+ORDER BY em_a.SALARY DESC;
+
+-- 9)
+SELECT *
+FROM JOBS
+ORDER BY JOB_TITLE DESC;
+
+-- 10)
+SELECT *
+FROM EMPLOYEES
+WHERE SUBSTR(FIRST_NAME,-1,1) = 'd'
+    AND SUBSTR(LAST_NAME,0,1) = 'G';
+    
+-- 11)
+SELECT *
+FROM EMPLOYEES
+WHERE EXTRACT(month from HIRE_DATE) = 6;
+
+-- 12)
+SELECT e_a.*
+FROM EMPLOYEES e_a, JOBS j_a, DEPARTMENTS d_a
+WHERE e_a.JOB_ID = j_a.JOB_ID
+    AND e_a.DEPARTMENT_ID = d_a.DEPARTMENT_ID
+    AND e_a.COMMISSION_PCT is NULL
+    AND e_a.SALARY >= 2000
+    AND e_a.SALARY <= 5000
+    AND d_a.DEPARTMENT_ID = 30;
+    
+-- 13)
+SELECT FIRST_NAME, LAST_NAME
+FROM EMPLOYEES
+WHERE EXTRACT(YEAR FROM HIRE_DATE) = 1998;
+    
+-- 14)
+
+-- 15)
+-- 16)
+-- 17)
+-- 18)
+-- 19)
+-- 20)
+-- 21)
