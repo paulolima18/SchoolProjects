@@ -9,6 +9,9 @@ ghc main.hs
 ./main
 ```
 
+# Cover
+![game](cover.png)
+
 Made by:
 
 * Paulo Lima -> https://github.com/paulolima18/
